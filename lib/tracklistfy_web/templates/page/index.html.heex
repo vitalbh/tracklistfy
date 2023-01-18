@@ -1,0 +1,22 @@
+<section class="phx-hero">
+  <div> Chose a playlist url from <a target="_blank" href="https://www.letras.mus.br/playlists/">Letras.com</a></div>
+  <%= form_for @conn, Routes.page_path(@conn, :index), [method: :get], fn f -> %>
+    <%= text_input f, :url %>
+    <%= submit "Search" %>
+  <% end %>
+</section>
+
+<section class="row">
+  <article class="column">
+    <%= unless length(@tracks)==0 do %>
+      <button>Send to Spotify Playlist</button>
+      <ul>
+      <%= for track <- @tracks do %>
+        <li><%= track.artist %> - <%= track.song %></li>
+      <% end %>
+      </ul>
+      <button>Send to Spotify Playlist</button>
+    <% else %>
+    <% end %>
+    </article>
+</section>
