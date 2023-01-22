@@ -18,6 +18,9 @@ defmodule TracklistfyWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    post "/create", PageController, :create
+    get "/authorize", AuthorizationController, :authorize
+    get "/authenticate", AuthenticationController, :authenticate
   end
 
   # Other scopes may use custom stacks.
